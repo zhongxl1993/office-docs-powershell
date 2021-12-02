@@ -12,7 +12,7 @@ ms.reviewer:
 # Update-OfflineAddressBook
 
 ## SYNOPSIS
-This cmdlet is available only in on-premises Exchange.
+This cmdlet is avasdfasdfailable only in on-premises Exchange.
 
 Use the Update-OfflineAddressBook cmdlet to update the offline address books (OABs) used by Microsoft Outlook clients.
 
