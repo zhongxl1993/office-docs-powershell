@@ -64,6 +64,7 @@ Set-UnifiedGroup [-Identity] <UnifiedGroupIdParameter>
  [-HiddenFromAddressListsEnabled <Boolean>]
  [-HiddenFromExchangeClientsEnabled]
  [-InformationBarrierMode <GroupInformationBarrierMode>]
+ [-IsMemberAllowedToEditContent <System.Boolean>]
  [-Language <CultureInfo>]
  [-MailboxRegion <String>]
  [-MailTip <String>]
@@ -877,6 +878,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -IsMemberAllowedToEditContent
+{{ Fill IsMemberAllowedToEditContent Description }}
+
+```yaml
+Type: System.Boolean
+Parameter Sets: (All)
+Aliases:
+Applicable: Exchange Online
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Language
 The Language parameter specifies language preference for the Microsoft 365 Group.
 
@@ -1233,11 +1250,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 

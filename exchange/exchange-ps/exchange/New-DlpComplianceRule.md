@@ -111,10 +111,12 @@ New-DlpComplianceRule [-Name] <String> -Policy <PolicyIdParameter>
  [-MessageSizeOver <ByteQuantifiedSize>]
  [-MessageTypeMatches <Microsoft.Office.CompliancePolicy.PolicyEvaluation.MessageTypes>]
  [-Moderate <PswsHashtable>]
+ [-ModifySubject <PswsHashtable>]
  [-NonBifurcatingAccessScope <NonBifurcatingAccessScope>]
  [-NotifyAllowOverride <OverrideOption[]>]
  [-NotifyEmailCustomSubject <String>]
  [-NotifyEmailCustomText <String>]
+ [-NotifyEndpointUser <PswsHashtable>]
  [-NotifyPolicyTipCustomText <String>]
  [-NotifyPolicyTipCustomTextTranslations <MultiValuedProperty>]
  [-NotifyUser <MultiValuedProperty>]
@@ -201,7 +203,7 @@ $contains_complex_types = @{
                     maxcount = -1
                 }
                 )
-        }  
+        }
 
     )
 }
@@ -785,7 +787,9 @@ Accept wildcard characters: False
 ```
 
 ### -EndpointDlpRestrictions
-The EndpointDlpRestrictions parameter specifies the restricted endpoints. This parameter uses the following syntax: `@(@{"Setting"="<Setting>"; "Value"="<Value>}",@{"Setting"="<Setting>"; "Value"="<Value>"},...)`.
+**Note**: This parameter requires membership in the Compliance administrator or Compliance data administrator roles in Azure Active Directory.
+
+The EndpointDlpRestrictions parameter specifies the restricted endpoints for Endpoint DLP. This parameter uses the following syntax: `@(@{"Setting"="<Setting>"; "Value"="<Value>}",@{"Setting"="<Setting>"; "Value"="<Value>"},...)`.
 
 The value of `<Setting>` is one of the supported values.
 
@@ -804,6 +808,8 @@ Example values:
 When you use the values Block or Warn in this parameter, you also need to use the NotifyUser parameter.
 
 You can view and configure the available restrictions with the Get-PolicyConfig and Set-PolicyConfig cmdlets.
+
+For more information about Endpoint DLP, see [Learn about Endpoint data loss prevention](https://docs.microsoft.com/microsoft-365/compliance/endpoint-dlp-learn-about).
 
 ```yaml
 Type: PswsHashtable[]
@@ -2162,14 +2168,38 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ModifySubject
+The ModifySubject parameter uses regular expressions to find text patterns in the subject of the email message, and then modifies the subject with the text that you specify. This parameter uses the syntax: `@{Patterns="RegEx1","RegEx2",..."RegEx10}"; SubjectText="Replacement Text"; ReplaceStrategy="Value"}`.
+
+The `ReplaceStrategy=` property uses one of the following values:
+
+- Replace: Replaces all regular expression matches (the `Patterns=` value) in the subject with the `SubjectText=` value.
+- Append: Removes all regular expression matches (the `Patterns=` value) in the subject and inserts the `SubjectText=` value at the end of the subject.
+- Prepend: Removes all regular expression matches (the `Patterns=` value) and inserts the `SubjectText=` value at the beginning of the subject.
+
+The maximum individual regular expression length is 128 characters. The maximum number of regular expressions is 10.
+
+```yaml
+Type: PswsHashtable
+Parameter Sets: Default
+Aliases:
+Applicable: Security & Compliance Center
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -NonBifurcatingAccessScope
-The NonBifurcatingAccessScope parameter specifies a condition for the DLP rule that looks for recipients in the specified access scope. The rule is applied to all copies of the message. Valid values are:  
+The NonBifurcatingAccessScope parameter specifies a condition for the DLP rule that looks for recipients in the specified access scope. The rule is applied to all copies of the message. Valid values are:
 
-- HasInternal: At least one recipient is inside the organization. 
-- HasExternal: At least one recipient is outside the organization. 
-- None: The condition isn't used. 
+- HasInternal: At least one recipient is inside the organization.
+- HasExternal: At least one recipient is outside the organization.
+- None: The condition isn't used.
 
-You can use this condition in DLP policies that are scoped only to Exchange. 
+You can use this condition in DLP policies that are scoped only to Exchange.
 
 ```yaml
 Type: NonBifurcatingAccessScope
@@ -2207,7 +2237,7 @@ Accept wildcard characters: False
 ```
 
 ### -NotifyEmailCustomSubject
-{{ Fill NotifyEmailCustomSubject Description }}
+The NotifyEmailCustomSubject parameter specifies the custom text in the subject line of email notification message that's sent to recipients when the conditions of the rule are met.
 
 ```yaml
 Type: String
@@ -2234,6 +2264,26 @@ This parameter has a 5000 character limit, and supports plain text, HTML tags an
 ```yaml
 Type: String
 Parameter Sets: (All)
+Aliases:
+Applicable: Security & Compliance Center
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NotifyEndpointUser
+**Note**: This parameter requires membership in the Compliance administrator or Compliance data administrator roles in Azure Active Directory.
+
+{{ Fill NotifyEndpointUser Description }}
+
+For more information about Endpoint DLP, see [Learn about Endpoint data loss prevention](https://docs.microsoft.com/microsoft-365/compliance/endpoint-dlp-learn-about).
+
+```yaml
+Type: PswsHashtable
+Parameter Sets: Default
 Aliases:
 Applicable: Security & Compliance Center
 
@@ -3005,11 +3055,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 

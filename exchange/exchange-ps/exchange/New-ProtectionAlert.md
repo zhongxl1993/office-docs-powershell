@@ -38,6 +38,7 @@ New-ProtectionAlert -Category <AlertRuleCategory> -Name <String> -NotifyUser <Mu
  [-NotifyUserThrottleThreshold <Int32>]
  [-NotifyUserThrottleWindow <Int32>]
  [-Operation <MultiValuedProperty>]
+ [-CustomProperties <PswsHashtable>]
  [-Severity <RuleSeverity>]
  [-Threshold <Int32>]
  [-TimeWindow <Int32>]
@@ -231,6 +232,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -CustomProperties
+{{ Fill CustomProperties Description }}
+
+```yaml
+Type: PswsHashtable
+Parameter Sets: (All)
+Aliases:
+Applicable: Security & Compliance Center
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Description
 The Description parameter specifies descriptive text for the alert policy. If the value contains spaces, enclose the value in quotation marks (").
 
@@ -272,7 +289,7 @@ The Filter parameter uses OPath syntax to filter the results by the specified pr
 - Enclose the whole OPath filter in double quotation marks " ". If the filter contains system values (for example, `$true`, `$false`, or `$null`), use single quotation marks ' ' instead. Although this parameter is a string (not a system block), you can also use braces { }, but only if the filter doesn't contain variables.
 - Property is a filterable property.
 - ComparisonOperator is an OPath comparison operator (for example `-eq` for equals and `-like` for string comparison). For more information about comparison operators, see [about_Comparison_Operators](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_comparison_operators).
-- Value is the property value to search for. Enclose text values and variables in single quotation marks (`'Value'` or `'$Variable'`). If a variable value contains single quotation marks, you need to identify (escape) the single quotation marks to expand the variable correctly. For example, instead of `'$User'`, use `'$($User -Replace "'","''")'`. Don't enclose integers or system values (for example, `500`, `$true`, `$false`, or `$null`).
+- Value is the property value to search for. Enclose text values and variables in single quotation marks (`'Value'` or `'$Variable'`). If a variable value contains single quotation marks, you need to identify (escape) the single quotation marks to expand the variable correctly. For example, instead of `'$User'`, use `'$($User -Replace "'","''")'`. Don't enclose integers or system values in quotation marks (for example, use `500`, `$true`, `$false`, or `$null` instead).
 
 You can chain multiple search criteria together using the logical `-and` operator (for example, `"Criteria1 -and Criteria2"`).
 
@@ -574,11 +591,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 

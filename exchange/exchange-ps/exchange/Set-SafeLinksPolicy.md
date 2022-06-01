@@ -33,7 +33,6 @@ Set-SafeLinksPolicy [-Identity] <SafeLinksPolicyIdParameter>
  [-EnableOrganizationBranding <Boolean>]
  [-EnableSafeLinksForEmail <Boolean>]
  [-EnableSafeLinksForTeams <Boolean>]
- [-IsEnabled <Boolean>]
  [-ScanUrls <Boolean>]
  [-TrackClicks <Boolean>]
  [-UseTranslatedNotificationText <Boolean>]
@@ -281,24 +280,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IsEnabled
-This parameter has been deprecated and is no longer used.
-
-Use the EnableSafeLinksForEmail parameter instead.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-Applicable: Exchange Online, Exchange Online Protection
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ScanUrls
 The ScanUrls parameter specifies whether to enable or disable real-time scanning of clicked links in email messages. Valid values are:
 
@@ -377,11 +358,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 

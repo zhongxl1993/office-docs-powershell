@@ -78,7 +78,6 @@ Set-Label [-Identity] <ComplianceRuleIdParameter>
  [-SiteAndGroupProtectionLevel <SiteAndGroupProtectionLevelParameter>]
  [-SiteAndGroupProtectionPrivacy <Microsoft.Office.CompliancePolicy.Tasks.FlattenLabelActionUtils+GroupProtectionPrivacy>]
  [-SiteExternalSharingControlType <Microsoft.Office.CompliancePolicy.Tasks.SiteExternalSharingControlType>]
- [-TeamsLobbyBypassScope <Microsoft.Office.CompliancePolicy.PolicyConfiguration.LobbyBypassScope>]
  [-Tooltip <String>]
  [-WhatIf]
  [<CommonParameters>]
@@ -691,7 +690,7 @@ Accept wildcard characters: False
 ```
 
 ### -EncryptionEnabled
-The EncryptionEnabled parameter specifies whether encryption in enabled. Value values are:
+The EncryptionEnabled parameter specifies whether encryption in enabled. Valid values are:
 
 - $true: Encryption is enabled.
 - $false: Encryption is disabled.
@@ -1185,22 +1184,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TeamsLobbyBypassScope
-This parameter is reserved for internal Microsoft use.
-
-```yaml
-Type: Microsoft.Office.CompliancePolicy.PolicyConfiguration.LobbyBypassScope
-Parameter Sets: (All)
-Aliases:
-Applicable: Security & Compliance Center
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Tooltip
 The ToolTip parameter specifies the default tooltip and sensitivity label description that's seen by users. It the value contains spaces, enclose the value in quotation marks (").
 
@@ -1238,11 +1221,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 

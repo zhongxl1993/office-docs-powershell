@@ -78,7 +78,6 @@ New-Label [-Name] <String> -DisplayName <String> -Tooltip <String>
  [-SiteAndGroupProtectionLevel <SiteAndGroupProtectionLevelParameter>]
  [-SiteAndGroupProtectionPrivacy <Microsoft.Office.CompliancePolicy.PolicyConfiguration.AccessType>]
  [-SiteExternalSharingControlType <Microsoft.Office.CompliancePolicy.Tasks.SiteExternalSharingControlType>]
- [-TeamsLobbyBypassScope <Microsoft.Office.CompliancePolicy.PolicyConfiguration.LobbyBypassScope>]
  [-WhatIf]
  [<CommonParameters>]
 ```
@@ -719,7 +718,7 @@ Accept wildcard characters: False
 ```
 
 ### -EncryptionEnabled
-The EncryptionEnabled parameter specifies whether encryption in enabled. Value values are:
+The EncryptionEnabled parameter specifies whether encryption in enabled. Valid values are:
 
 - $true: Encryption is enabled.
 - $false: Encryption is disabled.
@@ -1213,22 +1212,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TeamsLobbyBypassScope
-This parameter is reserved for internal Microsoft use.
-
-```yaml
-Type: Microsoft.Office.CompliancePolicy.PolicyConfiguration.LobbyBypassScope
-Parameter Sets: (All)
-Aliases:
-Applicable: Security & Compliance Center
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -WhatIf
 The WhatIf switch doesn't work in Security & Compliance Center PowerShell.
 
@@ -1250,11 +1233,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-###  
-
 ## OUTPUTS
-
-###  
 
 ## NOTES
 
