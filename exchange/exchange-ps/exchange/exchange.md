@@ -2300,6 +2300,8 @@ Exchange PowerShell is built on Windows PowerShell technology and provides a pow
 ### [Set-VivaInsightsSettings](Set-VivaInsightsSettings.md)
 
 ## reporting Cmdlets
+### [Get-AggregateZapReport](Get-AggregateZapReport.md)
+
 ### [Get-CompromisedUserAggregateReport](Get-CompromisedUserAggregateReport.md)
 
 ### [Get-CompromisedUserDetailReport](Get-CompromisedUserDetailReport.md)
@@ -2329,6 +2331,8 @@ Exchange PowerShell is built on Windows PowerShell technology and provides a pow
 ### [Get-CsUserActivitiesReport](Get-CsUserActivitiesReport.md)
 
 ### [Get-CsUsersBlockedReport](Get-CsUsersBlockedReport.md)
+
+## [Get-DetailZapReport](Get-DetailZapReport.md)
 
 ### [Get-GroupActivityReport](Get-GroupActivityReport.md)
 
